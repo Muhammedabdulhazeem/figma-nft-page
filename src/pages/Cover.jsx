@@ -1,6 +1,19 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import cover from '../assets/images/cover.png'
+
+const buttonVariant = {
+  final: {
+    scale: 1.1,
+    transition: {
+        duration: 0.5,
+        repeatType: "mirror",
+        repeat: Infinity,
+    }
+  }
+}
+
 
 const Cover = () => {
   return (
@@ -9,7 +22,11 @@ const Cover = () => {
         <div className='absolute bottom-[16rem] left-[15rem] text-center'>
             <h1 className='font-bold text-[50px]'><span className='text-[#2A27C9]'>Wel</span>come</h1>
             <Link to='/home'>
-              <button className='enter font-[800] text-[30px] px-4 hover:scale-105'>Enter</button>
+              <motion.button 
+                className='enter font-[800] text-[30px] px-4 hover:scale-105'
+                variants={buttonVariant}
+                animate="final"
+              >Enter</motion.button>
             </Link>
         </div>
     </div>
